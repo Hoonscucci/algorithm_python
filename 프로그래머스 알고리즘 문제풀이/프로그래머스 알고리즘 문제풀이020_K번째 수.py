@@ -40,4 +40,14 @@ def solution(array, commands):
 """
 
 ========================================================
+def solution(array, commands):
+    answer = []
+    for i,j,k in commands:
+        answer.append(sorted(array[i-1 : j])[k-1])
+    return answer
 
+"""
+for문을 통해 i,j,k에 나눠서 반복문을 사용하는것을 생각했으나
+2차원 배열의 이해도가 낮아서 정확히 어떻게 사용해야할지 적용 시키지 못했다.
+sort와 sorted의 사용법에 대한 고민도 해봐야 할 듯 하다.
+"""
