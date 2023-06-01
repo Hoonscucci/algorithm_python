@@ -16,7 +16,7 @@ def solution(n):
     return int("".join(ls))
 
 """
-ls에서 n을 문자열로바꾸고 list로 감싸주었다
+ls에서 n을 문자열로바꾸고 list로 감싸주었다 (sort 함수는 list에서 사용가능 하기에)
 그후 sort 함수를 사용하고 reverse = True로 정의하여 내림차순정렬 한후
 join함수를 사용하여 합쳐주고 int로 변환시켜주었다.
 """
