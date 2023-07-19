@@ -30,7 +30,7 @@ def solution(maps):
     #현재 위치를 1로표시 [[1,-1,-1,-1,-1],[-1,-1,-1,-1,-1]]... 인 행렬이 완성
 
     while queue:
-        y, x = queue.popleft()
+        x, y = queue.popleft()
         # 현위치 지정 밑의 과정을 통해 queue에 새로운 현위치가 수정될 예정
         
         for i in range(4):
@@ -40,19 +40,18 @@ def solution(maps):
             # 4번의 반복문을 수행 동서남북으로 움직이게 현위치 x,y에 dx,dy 를 하나씩 추가해보고
             # 밑의 반복문 적용
             
-            if 0 <= ny < r and 0 <= nx < c and maps[ny][nx] == 1:
+            if 0 <= nx < r and 0 <= ny < c and maps[nx][ny] == 1:
                 # x, y의 좌표가 맵을 벗어나지 않고 maps의 기준으로 이동할수 있는곳이면 아래 if문 수행
-                if graph[ny][nx] == -1:
+                if graph[nx][ny] == -1:
                     #그래프의 좌표가 -1이면
                     #그래프를 다 -1로 바꿔놓로 바꿔 놨으니
                     #역행은 안되지~
-                    graph[ny][nx] = graph[y][x] + 1
+                    graph[nx][ny] = graph[x][y] + 1
                     #최단거리를 이전 위치+1로 해준다.
-                    queue.append([ny, nx])
+                    queue.append([nx, ny])
                     #현재 위치좌표를 queue에 넣어준다.
                     
     answer = graph[-1][-1]
-    # 중간에 길이 막히면 if문이 수행이 되지 않기에 graph[-1][-1]은 처음 설정 처럼 -1이 된다.
     return answer
 
 """
